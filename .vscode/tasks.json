@@ -1,0 +1,52 @@
+{
+  "tasks": [
+    {
+      "type": "cppbuild",
+      "label": "C/C++: g++.exe build active file",
+      "command": "D:\\Environment\\Scoop\\apps\\mingw\\current\\bin\\g++.exe",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\.temp\\${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "Build current C++ file"
+    },
+    {
+      "type": "shell",
+      "label": "C++: Build and Run",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "if (!(Test-Path '.temp')) { New-Item -ItemType Directory -Name '.temp' | Out-Null }; g++ -fdiagnostics-color=always -g '${file}' -o '.temp\\${fileBasenameNoExtension}.exe'; if ($LASTEXITCODE -eq 0) { Write-Host '=== Program Output ===' -ForegroundColor Green; & '.temp\\${fileBasenameNoExtension}.exe'; Write-Host '=== Program Finished ===' -ForegroundColor Green } else { Write-Host 'Compilation Failed!' -ForegroundColor Red }"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "Build and run current C++ file (hide exe files)",
+      "presentation": {
+        "echo": false,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    }
+  ],
+  "version": "2.0.0"
+}

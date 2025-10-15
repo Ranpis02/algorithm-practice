@@ -1,0 +1,28 @@
+{
+  "files.exclude": {
+    "**/.temp": true,
+    "**/*.exe": true,
+    "**/*.o": true,
+    "**/*.obj": true
+  },
+  "files.watcherExclude": {
+    "**/.temp/**": true
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "code-runner.executorMap": {
+    "cpp": "cd $dir && if (!(Test-Path '.temp')) { New-Item -ItemType Directory -Name '.temp' | Out-Null }; g++ -g '$fileName' -o '.temp/$fileNameWithoutExt.exe' && & '.temp/$fileNameWithoutExt.exe'"
+  },
+  "code-runner.runInTerminal": true,
+  "code-runner.saveFileBeforeRun": true,
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.preserveFocus": false,
+  "C_Cpp.default.compilerPath": "D:\\Environment\\Scoop\\apps\\mingw\\current\\bin\\g++.exe",
+  "files.associations": {
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript",
+    "typeinfo": "cpp",
+    "ostream": "cpp",
+    "iostream": "cpp"
+  }
+}
