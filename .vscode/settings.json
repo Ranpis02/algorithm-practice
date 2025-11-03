@@ -23,6 +23,8 @@
     "*.wxs": "javascript",
     "typeinfo": "cpp",
     "ostream": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "stdexcept": "cpp",
+    "new": "cpp"
   }
 }
