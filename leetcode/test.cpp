@@ -7,9 +7,10 @@ using namespace std;
 
 int main()
 {
-  vector<int> vec = {1, 2, 3, 4, 5};
+  srand(time(0));
+  cout << rand() % 10 << " ";
+  cout << rand() % 10 << " ";
+  cout << rand() % 10 << endl;
 
-
-  cout << typeid(vec).name() << endl;
   return 0;
 }
