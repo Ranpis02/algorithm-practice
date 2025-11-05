@@ -3,15 +3,19 @@
     "**/.temp": true,
     "**/*.exe": true,
     "**/*.o": true,
-    "**/*.obj": true
+    "**/*.obj": true,
+    "**/bin": true
   },
   "files.watcherExclude": {
-    "**/.temp/**": true
+    "**/.temp/**": true,
+    "**/bin/**": true
   },
   "terminal.integrated.defaultProfile.windows": "PowerShell",
   "code-runner.executorMap": {
-    "cpp": "cd $dir && if (!(Test-Path '.temp')) { New-Item -ItemType Directory -Name '.temp' | Out-Null }; g++ -g '$fileName' -o '.temp/$fileNameWithoutExt.exe' && & '.temp/$fileNameWithoutExt.exe'"
+    "cpp": "cd $dir && if (!(Test-Path '.temp')) { New-Item -ItemType Directory -Name '.temp' | Out-Null }; g++ -g '$fileName' -o '.temp/$fileNameWithoutExt.exe' && & '.temp/$fileNameWithoutExt.exe'",
+    "java": "cd $dir; if (!(Test-Path '$workspaceRoot\\bin')) { New-Item -ItemType Directory -Path '$workspaceRoot\\bin' | Out-Null }; javac -d '$workspaceRoot\\bin' '$fullFileName'; if ($?) { java -cp '$workspaceRoot\\bin' '$fileNameWithoutExt' }"
   },
+  "java.project.outputPath": "bin",
   "code-runner.runInTerminal": true,
   "code-runner.saveFileBeforeRun": true,
   "code-runner.clearPreviousOutput": true,

@@ -46,6 +46,51 @@
         "showReuseMessage": false,
         "clear": true
       }
+    },
+    {
+      "type": "shell",
+      "label": "Java: Compile and Run",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "$binDir = '${workspaceFolder}\\bin'; if (!(Test-Path $binDir)) { New-Item -ItemType Directory -Path $binDir | Out-Null }; $classFiles = Get-ChildItem -Path '${fileDirname}' -Filter '*.class' -ErrorAction SilentlyContinue; if ($classFiles) { Remove-Item $classFiles -Force }; javac -d $binDir '${file}'; if ($LASTEXITCODE -eq 0) { Write-Host '=== Program Output ===' -ForegroundColor Green; java -cp $binDir ${fileBasenameNoExtension}; Write-Host '=== Program Finished ===' -ForegroundColor Green } else { Write-Host 'Compilation Failed!' -ForegroundColor Red }"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "group": {
+        "kind": "test"
+      },
+      "detail": "Compile and run current Java file (.class files go to bin directory)",
+      "presentation": {
+        "echo": false,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "type": "shell",
+      "label": "Java: Clean all .class files",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "$classFiles = Get-ChildItem -Path '${workspaceFolder}' -Filter '*.class' -Recurse -ErrorAction SilentlyContinue; if ($classFiles) { $classFiles | Remove-Item -Force; Write-Host ('\u2713 Deleted ' + $classFiles.Count + ' .class files') -ForegroundColor Green } else { Write-Host '\u2713 No .class files found' -ForegroundColor Green }"
+      ],
+      "group": {
+        "kind": "test"
+      },
+      "detail": "Remove all .class files from the workspace",
+      "presentation": {
+        "echo": false,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
     }
   ],
   "version": "2.0.0"

@@ -42,3 +42,9 @@
 
 # Temporary directory
 .temp/
+
+# Java compiled files
+*.class
+bin/
+out/
+
