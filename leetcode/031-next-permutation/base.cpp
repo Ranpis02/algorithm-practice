@@ -5,9 +5,22 @@
 
 /**
  * @brief next permutation
+ *
+ * Key Concept: Lexicographical Order && Greedy based local exchange
+ * Approach:
+ * 1. keep the longest prefix unchanged
+ * 2. make the smallest necessary change to the suffix to get the next larger sequence
  * 
- * Solution idea:
- * - Step1 : Find the pivot
+ * Step: 
+ * 1. 从右开始扫描第一个递减的元素，即找到第一个 nums[i] < nums[i + 1] 的元素索引 i
+ * 2. 从右边序列中找到最小的大于 nums[i] 的元素，然后交换
+ * 3. 将 nums[i] 右边的序列进行倒置
+ * 
+ * Example: [1, 2, 3, 6, 5, 4]
+ * 1. find the first decreasing element nums[i]: 3
+ * 2. find the smallest element to the right of nums[i] that is greater than nums[i]: 4
+ * 3. swap them: [1, 2, (4), 6, 5, (3)]
+ * 4. reverse the sequence to the right of nums[i]:  [1, 2, 4, 3, 5, 6]
  */
 using namespace std;
 class Solution
