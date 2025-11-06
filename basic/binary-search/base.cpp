@@ -19,7 +19,7 @@ int binarySearch(int a[], int l, int r, int target)
   if (r > l)
     return -1;
 
-  int mid = l + (r - l) >> 1;
+  int mid = l + ((r - l) >> 1);
 
   if (a[mid] == target)
     return mid;
