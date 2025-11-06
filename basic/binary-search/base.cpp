@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+/**
+ * Perform a binary search on an ascending sorted array.
+ *
+ * @param a The target array.
+ * @param l The left boundary index of search range.
+ * @param r The right boundary index of search range.
+ * @param target The target value to search for.
+ *
+ * @return The index of target if found. Otherwise -1.
+ */
+int binarySearch(int a[], int l, int r, int target)
+{
+  if (r > l)
+    return -1;
+
+  int mid = l + (r - l) >> 1;
+
+  if (a[mid] == target)
+    return mid;
+  else if (a[mid] > target)
+    return binarySearch(a, l, mid - 1, target);
+  else
+    return binarySearch(a, mid + 1, r, target);
+}
+
+int main()
+{
+
+  int a[] = {1, 2, 3, 4, 5};
+  int targetIndex = binarySearch(a, 0, 4, -1);
+  cout << targetIndex << endl;
+  return 0;
+}
