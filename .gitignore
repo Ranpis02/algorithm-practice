@@ -48,3 +48,6 @@
 bin/
 out/
 
+# temp runner file
+**/tempCodeRunnerFile.cpp
+
