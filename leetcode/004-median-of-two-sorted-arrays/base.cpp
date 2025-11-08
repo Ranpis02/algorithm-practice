@@ -41,6 +41,38 @@ public:
   }
 };
 
+class SpaceOptimizedSolution
+{
+public:
+  double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
+  {
+    int i = 0, j = 0, cnt = 0;
+    int s1 = nums1.size(), s2 = nums2.size();
+    int mid = (s1 + s2) / 2;
+
+    int prev, curr;
+
+    while (cnt <= mid)
+    {
+      prev = curr;
+      if (i < s1 && (j >= s2 || nums1[i] < nums2[j]))
+      {
+        curr = nums1[i++];
+      }
+      else
+      {
+        curr = nums2[j++];
+      }
+      cnt++;
+    }
+
+    if ((s1 + s2) & 1)
+      return curr;
+    else
+      return (prev + curr) / 2.0;
+  }
+};
+
 int main()
 {
   vector<int> nums1 = {1, 3};
