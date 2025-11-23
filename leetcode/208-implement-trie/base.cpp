@@ -21,7 +21,7 @@ public:
     root = new TrieNode();
   }
 
-  void insert(string word)
+  void insert(const string &word)
   {
     TrieNode *node = root;
 
@@ -36,7 +36,7 @@ public:
     node->isEnd = true;
   }
 
-  bool search(string word)
+  bool search(const string &word)
   {
     TrieNode *node = root;
 
@@ -52,7 +52,7 @@ public:
     return node->isEnd;
   }
 
-  bool startsWith(string prefix)
+  bool startsWith(const string &prefix)
   {
     TrieNode *node = root;
 
