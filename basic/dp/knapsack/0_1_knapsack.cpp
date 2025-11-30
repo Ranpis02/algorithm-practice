@@ -80,6 +80,9 @@ int knapsackExact(const vector<int> &weights, const vector<int> &values, int cap
       }
     }
 
+    if (dp[n][capacity] < 0)
+      return -1;
+
     return dp[n][capacity];
   }
 }
