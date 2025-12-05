@@ -75,6 +75,7 @@
     "span": "cpp",
     "streambuf": "cpp",
     "text_encoding": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "unordered_set": "cpp"
   }
 }
