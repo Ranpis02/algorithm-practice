@@ -48,6 +48,8 @@
 bin/
 out/
 
-# temp runner file
+# Temp runner file
 **/tempCodeRunnerFile.cpp
 
+# Custom rules
+leetcode/weekly
