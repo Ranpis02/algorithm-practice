@@ -5,6 +5,15 @@
 
 using namespace std;
 
+/**
+ * Instead of calculating the total score for each starting room i, we can calculate how mant starting room contribute to the score at room j.
+ *
+ * prefix[i] = damage[i] + prefix[i - 1], prefix[0] = 0.
+ *
+ * HP - (P[j] - P[i - 1]) >= requirement[j]
+ * =>
+ * P[i - 1] >= requirement[j] + P[j] - HP.
+ */
 class Solution
 {
 public:
