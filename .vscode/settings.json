@@ -79,6 +79,12 @@
     "unordered_set": "cpp",
     "flat_map": "cpp",
     "flat_set": "cpp",
-    "chrono": "cpp"
+    "chrono": "cpp",
+    "forward_list": "cpp",
+    "list": "cpp",
+    "generator": "cpp",
+    "stacktrace": "cpp",
+    "regex": "cpp",
+    "valarray": "cpp"
   }
 }
